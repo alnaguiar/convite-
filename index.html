@@ -32,27 +32,52 @@
             background-color: #FFCDD2;
             color: #B71C1C;
         }
-        .message {
+        /* Modal styles */
+        .modal {
             display: none;
-            margin: 20px auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: #FFF8E1;
             border: 2px solid #F06292;
             border-radius: 15px;
             padding: 20px;
             width: 80%;
+            max-width: 400px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
-        .message h2 {
+        .modal h2 {
             color: #880E4F;
         }
-        .cute-emoji {
+        .modal .cute-emoji {
             font-size: 50px;
+        }
+        .modal .ok-button {
+            margin-top: 20px;
+            background-color: #F48FB1;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .modal .ok-button:hover {
+            transform: scale(1.1);
         }
     </style>
     <script>
         function showMessage() {
-            const message = document.getElementById('message');
-            message.style.display = 'block';
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block';
+        }
+
+        function closeMessage() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
         }
 
         function transformNoToYes(button) {
@@ -70,9 +95,11 @@
                 onmouseenter="transformNoToYes(this)" 
                 onclick="showMessage()">Não</button>
     </div>
-    <div id="message" class="message">
+    <!-- Modal -->
+    <div id="modal" class="modal">
         <h2>Nosso date vai ser perfeito, linda!</h2>
         <div class="cute-emoji">🐻🌸🐻🌸🐻</div>
+        <button class="ok-button" onclick="closeMessage()">OK</button>
     </div>
     <footer>
         <p>da Alanna, beijos linda ❤️</p>
