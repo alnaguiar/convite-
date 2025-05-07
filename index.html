@@ -7,17 +7,22 @@
     <style>
         body {
             background-color: #FFEBEE;
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             color: #B71C1C;
         }
         .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 15px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
         }
         .yes-button {
             background-color: #C8E6C9;
@@ -27,14 +32,33 @@
             background-color: #FFCDD2;
             color: #B71C1C;
         }
+        .message {
+            display: none;
+            margin: 20px auto;
+            background-color: #FFF8E1;
+            border: 2px solid #F06292;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .message h2 {
+            color: #880E4F;
+        }
+        .cute-emoji {
+            font-size: 50px;
+        }
     </style>
     <script>
         function showMessage() {
-            alert('Nosso date vai ser perfeito, linda!');
+            const message = document.getElementById('message');
+            message.style.display = 'block';
         }
 
         function transformNoToYes(button) {
             button.textContent = 'Sim';
+            button.classList.remove('no-button');
+            button.classList.add('yes-button');
         }
     </script>
 </head>
@@ -45,6 +69,10 @@
         <button class="button no-button" 
                 onmouseenter="transformNoToYes(this)" 
                 onclick="showMessage()">Não</button>
+    </div>
+    <div id="message" class="message">
+        <h2>Nosso date vai ser perfeito, linda!</h2>
+        <div class="cute-emoji">🐻🌸🐻🌸🐻</div>
     </div>
     <footer>
         <p>da Alanna, beijos linda ❤️</p>
