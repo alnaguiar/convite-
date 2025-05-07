@@ -28,12 +28,23 @@
             color: #B71C1C;
         }
     </style>
+    <script>
+        function showMessage() {
+            alert('Nosso date vai ser perfeito, linda!');
+        }
+
+        function transformNoToYes(button) {
+            button.textContent = 'Sim';
+        }
+    </script>
 </head>
 <body>
     <h1>Quer sair comigo?</h1>
     <div>
-        <button class="button yes-button" onclick="location.href='/sim'">Sim</button>
-        <button class="button no-button" onclick="location.href='/nao'">Não</button>
+        <button class="button yes-button" onclick="showMessage()">Sim</button>
+        <button class="button no-button" 
+                onmouseenter="transformNoToYes(this)" 
+                onclick="showMessage()">Não</button>
     </div>
     <footer>
         <p>da Alanna, beijos linda ❤️</p>
